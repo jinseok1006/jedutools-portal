@@ -11,7 +11,7 @@ const projects = [
     description:
       "클라우드 상의 가상 머신, 가상 네트워크, 가상 스토리지 등의 서비스를 제공합니다. 학생들은 수업 및 개인 학습 용도로 활용할 수 있습니다.",
     imgSrc: "img/jcloud.png",
-    link: "http://114.70.193.169:18080/identity/v3/auth/OS-FEDERATION/identity_providers/keycloak/protocols/openid/websso?origin=http://114.70.193.169:18080/horizon/auth/websso/",
+    link: "https://jcloud.jbnu.ac.kr/identity/v3/auth/OS-FEDERATION/identity_providers/jsso-keycloak/protocols/openid/websso?origin=http://jcloud.jbnu.ac.kr/dashboard/auth/websso/",
     docs: "https://jcloud-devops.github.io",
     github: null,
   },
@@ -46,7 +46,7 @@ const projects = [
     description:
       "JEduTools의 아키텍처와 구조에 대한 상세한 문서를 제공하는 페이지입니다. 이를 통해 JEduTools의 구조를 이해하고 새로운 기능을 개발하거나 기여할 수 있도록 돕습니다.",
     imgSrc: "img/jhelper.png",
-    link: "https://jedutools.jbnu.ac.kr",
+    link: "https://jhelper.jbnu.ac.kr",
     github: "https://github.com/JBNU-JEduTools/JHelper",
     docs: null,
   },

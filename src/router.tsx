@@ -3,8 +3,8 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
-import Layout from "./pages/layout";
-import HomePage from "./pages/homepage";
+import Layout from "./pages/Layout";
+import HomePage from "./pages/HomePage";
 
 const routes = createRoutesFromElements(
   <Route path="/" element={<Layout />}>
