@@ -67,6 +67,8 @@ export default function ServiceCard({
             variant="contained"
             href={github ?? "#"}
             disabled={!github}
+            target="_blank"
+            rel="noopener"
             color="github"
             sx={{ flex: 1 }}
             startIcon={<GitHubIcon />}
@@ -77,6 +79,8 @@ export default function ServiceCard({
             variant="contained"
             href={docs ?? "#"}
             disabled={!docs}
+            target="_blank"
+            rel="noopener"
             color="secondary"
             sx={{ flex: 1 }}
             startIcon={<LibraryBooksIcon />}
