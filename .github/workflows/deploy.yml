@@ -30,6 +30,7 @@ jobs:
         env:
           NODE_ENV: production
           VITE_KEYCLOAK_URL: https://key.jbnu.ac.kr
+          VITE_KEYCLOAK_REALMS: JEduTools
 
       - name: Create CNAME
         run: echo "jedutools.jbnu.ac.kr" > ./dist/CNAME

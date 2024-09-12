@@ -127,10 +127,9 @@ function AccountButton({ handleLogout, username }: any) {
     setAnchorEl(null);
   };
 
-  const handleMangeAccount = () =>
-    (window.location.href = `${
-      import.meta.env.VITE_KEYCLOAK_URL
-    }/realms/jedutools/account`);
+  const accountUrl = `${import.meta.env.VITE_KEYCLOAK_URL}/realms/${
+    import.meta.env.VITE_KEYCLOAK_REALMS
+  }/account`;
 
   return (
     <>
@@ -141,12 +140,12 @@ function AccountButton({ handleLogout, username }: any) {
       <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
         <MenuItem>{username}</MenuItem>
         <Divider />
-        <MenuItem onClick={handleMangeAccount}>
-          <ListItemIcon>
-            <ManageAccountsIcon fontSize="small" />
-          </ListItemIcon>
-          My Account
-        </MenuItem>
+        {/* <MenuItem component="a" href={accountUrl}>
+            <ListItemIcon>
+              <ManageAccountsIcon fontSize="small" />
+            </ListItemIcon>
+            My Account
+        </MenuItem> */}
         <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
