@@ -53,7 +53,7 @@ theme = createTheme(theme, {
 });
 
 const oidcConfig = {
-  authority: `${import.meta.env.VITE_KEYCLOAK_URL}/realms/jedutools`,
+  authority: `${import.meta.env.VITE_KEYCLOAK_URL}/realms/JEduTools`,
   client_id: "jedutools-portal",
   redirect_uri: `${window.location.origin}${window.location.pathname}`,
   post_logout_redirect_uri: window.location.origin,
