@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import { useAuth, hasAuthParams } from "react-oidc-context";
+import { useNavigate } from "react-router-dom";
 
 export default function useKeycloak() {
   const auth = useAuth();
+  const navigate = useNavigate();
   const [hasTriedSignin, setHasTriedSignin] = useState(false);
 
-  useEffect(() => {
+  const silentLogin = async () => {
     if (hasAuthParams()) {
-      auth.signinSilent();
+      await auth.signinSilent();
+      navigate(location.pathname, { replace: true });
     }
-  }, []); // TODO: 이메일 로그인 이후 state 제거 방법 생각
+  };
 
   const handleLogin = async () => {
     if (
@@ -24,7 +27,12 @@ export default function useKeycloak() {
       setHasTriedSignin(true);
     }
   };
+
   const handleLogout = () => void auth.signoutRedirect();
+
+  useEffect(() => {
+    silentLogin();
+  }, []);
   const username = auth.user?.profile.preferred_username;
 
   return {

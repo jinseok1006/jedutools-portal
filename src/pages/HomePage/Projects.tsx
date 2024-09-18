@@ -33,14 +33,14 @@ const projects = [
     github: null,
     docs: null,
   },
-  // {
-  //   title: "예약시스템",
-  //   description: "교내 클라우드 인스턴스를 간편하게 대여할 수 있는 서비스입니다. 학생과 교직원들이 필요한 컴퓨팅 자원을 효율적으로 활용할 수 있도록 지원합니다.",
-  //   imgSrc: "/img/booking.png",
-  //   link: "http://114.70.193.169:18080/identity",
-  //   github: null,
-  //   docs: null
-  // },
+  {
+    title: "예약시스템",
+    description: "교내 클라우드 인스턴스를 간편하게 대여할 수 있는 서비스입니다. 학생과 교직원들이 필요한 컴퓨팅 자원을 효율적으로 활용할 수 있도록 지원합니다.",
+    imgSrc: "/img/booking.png",
+    link: "",
+    github: null,
+    docs: null
+  },
   {
     title: "JHelper",
     description:
