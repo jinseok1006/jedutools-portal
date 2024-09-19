@@ -14,6 +14,8 @@ export default function Layout() {
     username,
   } = useKeycloak();
 
+  
+
   return (
     <>
       <Navbar

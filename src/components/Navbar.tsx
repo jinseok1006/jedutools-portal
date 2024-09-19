@@ -15,7 +15,6 @@ import Link from "@mui/material/Link";
 import CircularProgress from "@mui/material/CircularProgress";
 import PersonIcon from "@mui/icons-material/Person";
 import Logout from "@mui/icons-material/Logout";
-import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 
 interface NavbarProps {
   isAuthenticated: boolean;

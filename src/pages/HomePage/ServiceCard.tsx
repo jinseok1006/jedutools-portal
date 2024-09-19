@@ -9,14 +9,10 @@ import Link from "@mui/material/Link";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 
-interface ServiceCardProps {
-  title: string; // 서비스의 제목
-  description: string; // 서비스 설명
-  imgSrc: string; // 이미지 경로
-  link: string; // 서비스 링크
-  github?: string | null; // GitHub 저장소 (optional)
-  docs?: string | null; // 문서 링크 (optional)
-}
+import type { Project } from "./Projects";
+
+interface ServiceCardProps extends Project {}
+
 export default function ServiceCard({
   title,
   description,
@@ -30,20 +26,7 @@ export default function ServiceCard({
       elevation={0}
       sx={{ height: "100%", display: "flex", flexDirection: "column" }}
     >
-      <Link href={link} underline="none" target="_blank" rel="noopener">
-        <CardMedia
-          component="img"
-          height="160px"
-          src={imgSrc}
-          alt={title}
-          sx={{
-            border: "1px solid",
-            borderRadius: 1.8,
-            borderColor: "grey.300",
-            objectFit: "contain",
-          }}
-        />
-      </Link>
+      <ServiceCardImage title={title} imgSrc={imgSrc} link={link} />
       <CardContent sx={{ display: "flex", flexDirection: "column", flex: 1 }}>
         <Typography
           variant="h5"
@@ -90,5 +73,48 @@ export default function ServiceCard({
         </Box>
       </CardContent>
     </Card>
+  );
+}
+
+interface ServiceCardImageProps {
+  imgSrc: string; // 이미지 경로
+  link: string | null; // 서비스 링크
+  title: string;
+}
+function ServiceCardImage({ title, imgSrc, link }: ServiceCardImageProps) {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    alert("준비중인 서비스입니다.");
+  };
+
+  return link == null ? (
+    <CardMedia
+      component="img"
+      height="160px"
+      src={imgSrc}
+      alt={title}
+      sx={{
+        border: "1px solid",
+        borderRadius: 1.8,
+        borderColor: "grey.300",
+        objectFit: "contain",
+      }}
+      onClick={handleClick}
+    />
+  ) : (
+    <Link href={link} underline="none" target="_blank" rel="noopener">
+      <CardMedia
+        component="img"
+        height="160px"
+        src={imgSrc}
+        alt={title}
+        sx={{
+          border: "1px solid",
+          borderRadius: 1.8,
+          borderColor: "grey.300",
+          objectFit: "contain",
+        }}
+      />
+    </Link>
   );
 }
