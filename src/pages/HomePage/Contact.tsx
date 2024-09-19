@@ -36,7 +36,7 @@ export default function Contact() {
             variant="contained"
             color="secondary"
             startIcon={<Email />}
-            href="mailto:jcloud.devops@gmail.com"
+            href="mailto:jedutools@gmail.com"
           >
             문의 메일 보내기
           </Button>
