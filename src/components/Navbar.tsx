@@ -15,29 +15,51 @@ import Link from "@mui/material/Link";
 import CircularProgress from "@mui/material/CircularProgress";
 import PersonIcon from "@mui/icons-material/Person";
 import Logout from "@mui/icons-material/Logout";
+import { useLocation, Link as RouterLink } from "react-router-dom";
 
-interface NavbarProps {
-  isAuthenticated: boolean;
-  username?: string;
-  handleLogin: () => Promise<void>;
-  handleLogout: () => void;
-  hasTriedSignin: boolean;
-  isLoading: boolean;
-}
+import { useKeycloak } from "../context/KeycloakContext";
 
-export default function Navbar({
-  isAuthenticated,
-  username,
-  handleLogin,
-  handleLogout,
-  hasTriedSignin,
-  isLoading,
-}: NavbarProps) {
+const pages = [
+  {
+    name: "home",
+    path: "/",
+  },
+  { name: "management", path: "/management" },
+];
+
+export default function Navbar() {
+  const { pathname } = useLocation();
+  const {
+    isAuthenticated,
+    handleLogin,
+    handleLogout,
+    hasTriedSignin,
+    isLoading,
+    profile,
+  } = useKeycloak();
+
   return (
     <AppBar position="static" color="inherit" elevation={0}>
       <Container>
         <Toolbar sx={{ height: "16px" }}>
           <LogoButton />
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, mx: 2 }}>
+            {pages.map((page) => (
+              <Button
+                component={RouterLink}
+                to={`${page.path}`}
+                key={page.name}
+                sx={{
+                  my: 2,
+                  color: pathname === page.path ? "primary.main" : "black",
+                  display: "block",
+                }}
+                size="large"
+              >
+                {page.name.toUpperCase()}
+              </Button>
+            ))}
+          </Box>
           <Box ml="auto" display="flex" alignItems="center" gap={2}>
             <Typography
               variant="body1"
@@ -46,13 +68,13 @@ export default function Navbar({
               {isLoading ? (
                 <CircularProgress size={30} />
               ) : isAuthenticated ? (
-                username
+                profile?.preferred_username
               ) : (
                 "비로그인 상태입니다."
               )}
             </Typography>
             <SignButton
-              username={username}
+              username={profile?.preferred_username}
               handleLogin={handleLogin}
               handleLogout={handleLogout}
               hasTriedSignin={hasTriedSignin}

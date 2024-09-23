@@ -53,10 +53,13 @@ theme = createTheme(theme, {
 });
 
 const oidcConfig = {
-  authority: `${import.meta.env.VITE_KEYCLOAK_URL}/realms/${import.meta.env.VITE_KEYCLOAK_REALMS}`,
+  authority: `${import.meta.env.VITE_KEYCLOAK_URL}/realms/${
+    import.meta.env.VITE_KEYCLOAK_REALMS
+  }`,
   client_id: "jedutools-portal",
   redirect_uri: `${window.location.origin}${window.location.pathname}`,
   post_logout_redirect_uri: window.location.origin,
+  scope:"openid profile email groups",
   onSigninCallback: (_user: User | void): void => {
     window.history.replaceState({}, document.title, window.location.pathname);
   },
@@ -66,7 +69,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AuthProvider {...oidcConfig}>
+      <AuthProvider {...oidcConfig} >
         <App />
       </AuthProvider>
     </ThemeProvider>
