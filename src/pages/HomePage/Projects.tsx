@@ -54,7 +54,7 @@ const projects: Project[] = [
   {
     title: "JEduTools Portal",
     description:
-      "JEudTools 서비스를 효과적으로 제공하기 위한 포털 페이지 개발 및 관리를 목표로 합니다. 본 프로젝트는 JEudTools의 다양한 기능과 서비스를 사용자 친화적인 인터페이스를 통해 접근 가능하게 만듭니다.",
+      "JEduTools 서비스를 효과적으로 제공하기 위한 포털 페이지 개발 및 관리를 목표로 합니다. 본 프로젝트는 JEduTools의 다양한 기능과 서비스를 사용자 친화적인 인터페이스를 통해 접근 가능하게 만듭니다.",
     imgSrc: "img/portal.png",
     link: "",
     github: "https://github.com/JBNU-JEduTools/portal",
