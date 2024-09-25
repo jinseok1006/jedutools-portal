@@ -10,8 +10,9 @@ export interface Project {
   description: string; // 서비스 설명
   imgSrc: string; // 이미지 경로
   link: string | null; // 서비스 링크
-  github?: string | null; // GitHub 저장소 (optional)
-  docs?: string | null; // 문서 링크 (optional)
+  github: string | null; // GitHub 저장소 (optional)
+  docs: string | null; // 문서 링크 (optional)
+  message: string | null;
 }
 
 const projects: Project[] = [
@@ -23,15 +24,17 @@ const projects: Project[] = [
     link: "https://litmus.jbnu.ac.kr",
     github: null,
     docs: null,
+    message: null,
   },
   {
     title: "JCode",
     description:
       "웹 상에서 프로그램 개발 및 테스트를 수행할 수 있는 Web IDE 서비스를 제공합니다. VS-Code 기반으로 C, C++, Java, Python, .Net, PHP, Node.js 등의 다양한 언어와 extension을 지원합니다.",
     imgSrc: "img/jcode.png",
-    link: "https://jcode.jbnu.ac.kr",
+    link: null,
     github: null,
     docs: null,
+    message: "사전 안내된 이메일을 참고하여 접속하시기 바랍니다."
   },
   {
     title: "JCloud",
@@ -41,6 +44,7 @@ const projects: Project[] = [
     link: "https://jcloud.jbnu.ac.kr/identity/v3/auth/OS-FEDERATION/identity_providers/jsso-keycloak/protocols/openid/websso?origin=https://jcloud.jbnu.ac.kr/dashboard/auth/websso/",
     docs: "https://jcloud-devops.github.io",
     github: null,
+    message: null
   },
   {
     title: "Slot",
@@ -50,6 +54,7 @@ const projects: Project[] = [
     link: null,
     github: null,
     docs: null,
+    message: "준비중인 서비스입니다."
   },
   {
     title: "JEduTools Portal",
@@ -59,6 +64,7 @@ const projects: Project[] = [
     link: "",
     github: "https://github.com/JBNU-JEduTools/portal",
     docs: null,
+    message:null
   },
   {
     title: "JHelper",
@@ -68,6 +74,7 @@ const projects: Project[] = [
     link: "https://jhelper.jbnu.ac.kr",
     github: "https://github.com/JBNU-JEduTools/JHelper",
     docs: null,
+    message: null
   },
 ];
 

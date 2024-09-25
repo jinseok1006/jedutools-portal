@@ -20,13 +20,14 @@ export default function ServiceCard({
   link,
   github,
   docs,
+  message
 }: ServiceCardProps) {
   return (
     <Card
       elevation={0}
       sx={{ height: "100%", display: "flex", flexDirection: "column" }}
     >
-      <ServiceCardImage title={title} imgSrc={imgSrc} link={link} />
+      <ServiceCardImage title={title} imgSrc={imgSrc} link={link} message={message}/>
       <CardContent sx={{ display: "flex", flexDirection: "column", flex: 1 }}>
         <Typography
           variant="h5"
@@ -80,11 +81,17 @@ interface ServiceCardImageProps {
   imgSrc: string; // 이미지 경로
   link: string | null; // 서비스 링크
   title: string;
+  message: string | null;
 }
-function ServiceCardImage({ title, imgSrc, link }: ServiceCardImageProps) {
+function ServiceCardImage({
+  title,
+  imgSrc,
+  link,
+  message,
+}: ServiceCardImageProps) {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    alert("준비중인 서비스입니다.");
+    alert(message);
   };
 
   return link == null ? (
