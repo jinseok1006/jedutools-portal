@@ -5,6 +5,8 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 
+const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL;
+
 export default function Contact() {
   return (
     <Container sx={{ my: 5, py: 5 }}>
@@ -29,6 +31,7 @@ export default function Contact() {
             startIcon={<Chat />}
             href="https://open.kakao.com/o/gXXXXX" // 카카오톡 오픈채팅 링크
             target="_blank"
+            disabled
           >
             카카오톡 오픈채팅방
           </Button>
@@ -36,7 +39,7 @@ export default function Contact() {
             variant="contained"
             color="secondary"
             startIcon={<Email />}
-            href="mailto:jedutools@gmail.com"
+            href={`mailto:${ADMIN_EMAIL}`}
           >
             문의 메일 보내기
           </Button>
