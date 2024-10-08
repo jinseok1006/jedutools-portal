@@ -52,11 +52,14 @@ const theme = createTheme(fontTheme, {
   },
 });
 
+const GITHUB_DEPLOLY_BASE_URL = '/jedutools-portal'
+
+
 const oidcConfig = {
   authority: `${import.meta.env.VITE_KEYCLOAK_URL}/realms/${import.meta.env.VITE_KEYCLOAK_REALMS}`,
   client_id: "jedutools-portal",
   redirect_uri: `${window.location.origin}${window.location.pathname}`,
-  post_logout_redirect_uri: window.location.origin,
+  post_logout_redirect_uri: `${window.location.origin}${GITHUB_DEPLOLY_BASE_URL}`,
   onSigninCallback: (_user: User | void): void => { 
     window.history.replaceState({}, document.title, window.location.pathname);
   },
