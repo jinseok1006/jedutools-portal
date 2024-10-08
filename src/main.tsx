@@ -6,13 +6,13 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { AuthProvider } from "react-oidc-context";
 import type { User } from "oidc-client-ts";
 
-let theme = createTheme({
+const fontTheme = createTheme({
   typography: {
     fontFamily: `pretendard, system-ui, sans-serif`,
   },
 });
 
-theme = createTheme(theme, {
+const theme = createTheme(fontTheme, {
   palette: {
     primary: {
       main: "#034287",
@@ -25,7 +25,7 @@ theme = createTheme(theme, {
       dark: "#d9dce0",
       contrastText: "#333d4b",
     },
-    github: theme.palette.augmentColor({
+    github: fontTheme.palette.augmentColor({
       color: {
         main: "#24292D",
         dark: "#282D32", // 원래 색상보다 어두운건 안보여서 밝은색으로 대체
@@ -57,7 +57,7 @@ const oidcConfig = {
   client_id: "jedutools-portal",
   redirect_uri: `${window.location.origin}${window.location.pathname}`,
   post_logout_redirect_uri: window.location.origin,
-  onSigninCallback: (_user: User | void): void => {
+  onSigninCallback: (_user: User | void): void => { 
     window.history.replaceState({}, document.title, window.location.pathname);
   },
 };
