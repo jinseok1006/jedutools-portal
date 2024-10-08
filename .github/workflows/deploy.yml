@@ -3,7 +3,7 @@ name: Build and Deploy GitHub Pages
 on:
   push:
     branches:
-      - main
+      - test-deploy
 
 permissions:
   contents: write
@@ -33,8 +33,8 @@ jobs:
           VITE_KEYCLOAK_REALMS: JEduTools
           VITE_ADMIN_EMAIL: jedutools@gmail.com
 
-      - name: Create CNAME
-        run: echo "jedutools.jbnu.ac.kr" > ./dist/CNAME
+      # - name: Create CNAME
+      #   run: echo "jedutools.jbnu.ac.kr" > ./dist/CNAME
 
       - name: Deploy pages
         uses: peaceiris/actions-gh-pages@v4
