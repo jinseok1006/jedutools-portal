@@ -12,4 +12,4 @@ const routes = createRoutesFromElements(
   </Route>
 );
 
-export default createBrowserRouter(routes);
+export default createBrowserRouter(routes, {basename: '/jedutools-portal'});
