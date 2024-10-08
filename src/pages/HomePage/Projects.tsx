@@ -47,7 +47,7 @@ const projects: Project[] = [
     title: "JIGSSO",
     description:
       "JIGSSO(JEduTools Intergrated Gateway for SSO)는 Keycloak을 기반으로 구축된 JEduTools의 통합 인증 시스템입니다. Single Sign-On 서버 역할을 수행하여, 하나의 계정만으로 JEduTools에서 제공하는 다양한 서비스에 원활하게 접근할 수 있도록 지원합니다.",
-    imgSrc: "/img/jigsso.png",
+    imgSrc: "img/jigsso.png",
     github: null,
     docs: null,
     action: () => {},
@@ -56,7 +56,7 @@ const projects: Project[] = [
     title: "SLOT",
     description:
       "교내 클라우드의 GPU 인스턴스를 간편하게 대여할 수 있는 서비스입니다. 학생과 교직원들이 필요한 컴퓨팅 자원을 효율적으로 활용할 수 있도록 지원합니다.",
-    imgSrc: "/img/slot.png",
+    imgSrc: "img/slot.png",
     github: null,
     docs: null,
     action: ()=> alert("준비중인 서비스입니다."),
