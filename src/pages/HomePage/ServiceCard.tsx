@@ -20,14 +20,19 @@ export default function ServiceCard({
   link,
   github,
   docs,
-  message
+  action,
 }: ServiceCardProps) {
   return (
     <Card
       elevation={0}
       sx={{ height: "100%", display: "flex", flexDirection: "column" }}
     >
-      <ServiceCardImage title={title} imgSrc={imgSrc} link={link} message={message}/>
+      <ServiceCardImage
+        title={title}
+        imgSrc={imgSrc}
+        link={link}
+        action={action}
+      />
       <CardContent sx={{ display: "flex", flexDirection: "column", flex: 1 }}>
         <Typography
           variant="h5"
@@ -77,24 +82,39 @@ export default function ServiceCard({
   );
 }
 
-interface ServiceCardImageProps {
-  imgSrc: string; // 이미지 경로
-  link: string | null; // 서비스 링크
-  title: string;
-  message: string | null;
-}
+type ServiceCardImageProps = Pick<
+  Project,
+  "imgSrc" | "link" | "title" | "action"
+>;
+
 function ServiceCardImage({
   title,
   imgSrc,
   link,
-  message,
+  action,
 }: ServiceCardImageProps) {
-  const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    alert(message);
-  };
 
-  return link == null ? (
+  
+  if (link) {
+    return (
+      <Link href={link} underline="none" target="_blank" rel="noopener">
+        <CardMedia
+          component="img"
+          height="160px"
+          src={imgSrc}
+          alt={title}
+          sx={{
+            border: "1px solid",
+            borderRadius: 1.8,
+            borderColor: "grey.300",
+            objectFit: "contain",
+          }}
+        />
+      </Link>
+    );
+  }
+
+  return (
     <CardMedia
       component="img"
       height="160px"
@@ -106,22 +126,7 @@ function ServiceCardImage({
         borderColor: "grey.300",
         objectFit: "contain",
       }}
-      onClick={handleClick}
+      onClick={action}
     />
-  ) : (
-    <Link href={link} underline="none" target="_blank" rel="noopener">
-      <CardMedia
-        component="img"
-        height="160px"
-        src={imgSrc}
-        alt={title}
-        sx={{
-          border: "1px solid",
-          borderRadius: 1.8,
-          borderColor: "grey.300",
-          objectFit: "contain",
-        }}
-      />
-    </Link>
   );
 }

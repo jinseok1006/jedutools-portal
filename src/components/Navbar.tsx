@@ -15,24 +15,19 @@ import Link from "@mui/material/Link";
 import CircularProgress from "@mui/material/CircularProgress";
 import PersonIcon from "@mui/icons-material/Person";
 import Logout from "@mui/icons-material/Logout";
+import { useKeycloak } from "../context/KeycloakContext";
 
-interface NavbarProps {
-  isAuthenticated: boolean;
-  username?: string;
-  handleLogin: () => Promise<void>;
-  handleLogout: () => void;
-  hasTriedSignin: boolean;
-  isLoading: boolean;
-}
+export default function Navbar() {
+  const {
+    isLoading,
+    isAuthenticated,
+    handleLogin,
+    handleLogout,
+    hasTriedSignin,
+    user,
+  } = useKeycloak();
+  const username = user?.profile.preferred_username;
 
-export default function Navbar({
-  isAuthenticated,
-  username,
-  handleLogin,
-  handleLogout,
-  hasTriedSignin,
-  isLoading,
-}: NavbarProps) {
   return (
     <AppBar position="static" color="inherit" elevation={0}>
       <Container>
@@ -105,7 +100,6 @@ function SignButton({
     return <AccountButton username={username} handleLogout={handleLogout} />;
   }
 
-  
   return (
     <Button
       variant="text"
