@@ -52,7 +52,7 @@ const theme = createTheme(fontTheme, {
   },
 });
 
-const GITHUB_DEPLOLY_BASE_URL = '/jedutools-portal'
+const GITHUB_DEPLOLY_BASE_URL = '/jedutools-portal/'
 
 
 const oidcConfig = {
