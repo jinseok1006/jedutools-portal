@@ -68,6 +68,13 @@ export const KeycloakProvider = ({
       )
         return;
 
+      if (auth.error.message === "No matching state found in storage") {
+        alert(
+          "로그인 요청을 보낸 브라우저와, 로그인 링크를 통해 접속한 브라우저가 다를 경우 로그인에 실패할 수 있습니다."
+        );
+        return;
+      }
+
       alert(
         `로그인에 문제가 있습니다. 관리자에게 문의 바랍니다.\n문의: ${ADMIN_EMAIL}`
       );
