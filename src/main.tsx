@@ -14,6 +14,10 @@ const fontTheme = createTheme({
 
 const theme = createTheme(fontTheme, {
   palette: {
+    text: {
+      primary: '#343a40',
+      secondary: '#868e96'
+    },
     primary: {
       main: "#034287",
       dark: "#023b6d",
