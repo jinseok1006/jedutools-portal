@@ -1,7 +1,8 @@
-## 개요
-### 목표
+# JEduTools Portal
+JEdutools Portal은 다양한 SW 교육 도구를 통합 관리하고, JIGSSO 기반 로그인 세션 관리와 공지 알림을 통해 사용자 편의성과 보안성을 강화하는 중심 플랫폼입니다.
 
-- 이 가이드는 JEduTools 포털 프로젝트를 이해하고, 프로젝트를 수정하거나 새로운 기능을 추가하는 방법을 배울 수 있도록 돕기위한 문서입니다.
+## 개요
+이 가이드는 JEduTools Portal 프로젝트를 이해하고, 프로젝트를 수정하거나 새로운 기능을 추가하는 방법을 배울 수 있도록 돕기위한 문서입니다.
 
 ### 기술 스택
 
@@ -135,7 +136,7 @@ const routes = createRoutesFromElements(
 
 수정이 필요한 경우, 각 라이브러리의 공식 문서를 참고해 주시기 바랍니다:
 
-- **react-oidc-context**: [공식 문서](https://react-oidc-context.vercel.app/)
+- **react-oidc-context**: [GitHub 저장소](https://github.com/authts/react-oidc-context)
 - **oidc-client-ts**: [GitHub 저장소](https://github.com/authts/oidc-client-ts)
 
 ### 주요 파일
