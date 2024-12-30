@@ -3,6 +3,7 @@ import { useAuth, hasAuthParams } from "react-oidc-context";
 import type { User } from "oidc-client-ts";
 const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL;
 
+
 interface KeycloakContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
@@ -22,6 +23,10 @@ const initialContextValue: KeycloakContextType = {
 
 const KeycloakContext = createContext<KeycloakContextType>(initialContextValue);
 
+/**
+ * @deprecated
+ * KeycloakContext를 사용하는 대신 hooks/useKeycloak을 사용하세요.
+ */
 export const KeycloakProvider = ({
   children,
 }: {
@@ -101,5 +106,9 @@ export const KeycloakProvider = ({
   );
 };
 
+/**
+ * @deprecated
+ * KeycloakContext를 사용하는 대신 hooks/useKeycloak을 사용하세요.
+ */
 // KeycloakContext 사용을 위한 커스텀 훅
 export const useKeycloak = () => useContext(KeycloakContext);
