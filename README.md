@@ -1,9 +1,7 @@
-# JEduTools Portal
-JEdutools Portal은 다양한 SW 교육 도구를 통합 관리하고, JIGSSO(Keycloak) 기반 로그인 세션 관리와 안내를 통해 사용자들이 JEduTools 서비스에 접근하기 위한 중심 플랫폼 입니다.
+# [JEduTools Portal](http://jedutools.jbnu.ac.kr)
+JEdutools Portal은 다양한 SW 교육 도구를 통합 관리하고, JIGSSO(Keycloak) 기반 로그인 세션 관리와 안내를 통해 사용자들이 JEduTools 서비스에 접근하기 위한 중심 플랫폼 입니다. 이 가이드는 JEduTools Portal 프로젝트를 이해하고, 프로젝트를 수정하거나 새로운 기능을 추가하는 방법을 배울 수 있도록 돕습니다.
 
 ## 개요
-이 가이드는 JEduTools Portal 프로젝트를 이해하고, 프로젝트를 수정하거나 새로운 기능을 추가하는 방법을 배울 수 있도록 돕기위한 문서입니다.
-
 ### 기술 스택
 JEduTools Portal은 JavaScript(TypeScript)를 이용하여 서버가 없는 단일 페이지 애플리케이션(SPA)을 구성하는 것을 목표로 합니다.
 
@@ -25,7 +23,7 @@ JEduTools Portal은 JavaScript(TypeScript)를 이용하여 서버가 없는 단�
 
 ### 필수 도구 설치
 
-- **Node.js & npm**: [Node.js](https://nodejs.org/ko/download/) 16 이상 설치.
+[Node.js](https://nodejs.org/ko/download/) 16 이상 설치.
 
 ```
 node -v
