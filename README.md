@@ -1,11 +1,10 @@
 # JEduTools Portal
-JEdutools Portal은 다양한 SW 교육 도구를 통합 관리하고, JIGSSO 기반 로그인 세션 관리와 공지 알림을 통해 사용자 편의성과 보안성을 강화하는 중심 플랫폼입니다.
+JEdutools Portal은 다양한 SW 교육 도구를 통합 관리하고, JIGSSO(Keycloak) 기반 로그인 세션 관리와 안내를 통해 사용자들이 JEduTools 서비스에 접근하기 위한 중심 플랫폼 입니다.
 
 ## 개요
 이 가이드는 JEduTools Portal 프로젝트를 이해하고, 프로젝트를 수정하거나 새로운 기능을 추가하는 방법을 배울 수 있도록 돕기위한 문서입니다.
 
 ### 기술 스택
-
 JEduTools Portal은 JavaScript(TypeScript)를 이용하여 서버가 없는 단일 페이지 애플리케이션(SPA)을 구성하는 것을 목표로 합니다.
 
 - 주요 사용 언어
@@ -132,7 +131,7 @@ const routes = createRoutesFromElements(
 ## 통합 로그인 수정 가이드
 
 통합 로그인과 관련된 코드는 `src/hooks/useKeycloak.ts` 파일에 작성되어 있습니다.  
-또한, `src/main.tsx` 파일에서는 **react-oidc-context**와 **oidc-client-ts** 라이브러리를 활용하여 인증 기능을 주입입하고 있습니다.
+또한, `src/main.tsx` 파일에서는 **react-oidc-context**와 **oidc-client-ts** 라이브러리를 활용하여 인증 기능을 주입하고 있습니다.
 
 수정이 필요한 경우, 각 라이브러리의 공식 문서를 참고해 주시기 바랍니다:
 
