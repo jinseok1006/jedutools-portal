@@ -23,7 +23,7 @@ const projects: Project[] = [
     imgSrc: "img/litmus.png",
     link: "https://litmus.jbnu.ac.kr",
     github: null,
-    docs: null,
+    docs: "https://jhelper.jbnu.ac.kr/Litmus",
   },
   {
     title: "JCODE",
@@ -32,7 +32,7 @@ const projects: Project[] = [
     imgSrc: "img/jcode.png",
     github: null,
     docs: null,
-    action: () => alert("사전 안내된 이메일을 참고하여 접속하시기 바랍니다."),
+    link: "https://jcode.jbnu.ac.kr",
   },
   {
     title: "JCloud",
@@ -40,7 +40,7 @@ const projects: Project[] = [
       "클라우드 상의 가상 머신, 가상 네트워크, 가상 스토리지 등의 서비스를 제공합니다. 학생들은 수업 및 개인 학습 용도로 활용할 수 있습니다.",
     imgSrc: "img/jcloud.png",
     link: "https://jcloud.jbnu.ac.kr/identity/v3/auth/OS-FEDERATION/identity_providers/jsso-keycloak/protocols/openid/websso?origin=https://jcloud.jbnu.ac.kr/dashboard/auth/websso/",
-    docs: "https://jcloud-devops.github.io",
+    docs: "https://jhelper.jbnu.ac.kr/JCloud",
     github: null,
   },
   {
@@ -49,8 +49,8 @@ const projects: Project[] = [
       "JIGSSO(JEduTools Intergrated Gateway for SSO)는 Keycloak을 기반으로 구축된 JEduTools의 통합 인증 시스템입니다. Single Sign-On 서버 역할을 수행하여, 하나의 계정만으로 JEduTools에서 제공하는 다양한 서비스에 원활하게 접근할 수 있도록 지원합니다.",
     imgSrc: "img/jigsso.png",
     github: null,
-    docs: null,
-    action: () => {},
+    docs: "https://jhelper.jbnu.ac.kr/JIGSSO",
+    action: () => alert("JEduTools 로그인에서 만나요!"),
   },
   {
     title: "SLOT",
@@ -63,7 +63,7 @@ const projects: Project[] = [
   },
 
   {
-    title: "JEduTools PORTAL",
+    title: "JEduTools Portal",
     description:
       "JEduTools 서비스를 효과적으로 제공하기 위한 포털 페이지 개발 및 관리를 목표로 합니다. 본 프로젝트는 JEduTools의 다양한 기능과 서비스를 사용자 친화적인 인터페이스를 통해 접근 가능하게 만듭니다.",
     imgSrc: "img/portal.png",
@@ -89,11 +89,8 @@ export default function Projects() {
         <Typography variant="h5" align="center" fontWeight="bold">
           JEduTools 프로젝트
         </Typography>
-        <Typography variant="body2" align="center" color="text.secondary">
-          프로젝트의 이미지를 클릭하면 각 서비스로 이동합니다.
-        </Typography>
       </Box>
-      <Grid container columnSpacing={4} rowSpacing={6}>
+      <Grid container columnSpacing={3} rowSpacing={3}>
         {projects.map((project) => (
           <Grid size={{ xs: 12, sm: 6, md: 4 }} key={project.title}>
             <ServiceCard {...project} />
