@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 
 import ServiceCard from "./ServiceCard";
+import ServiceCard2 from "./ServiceCard2";
 
 export interface Project {
   title: string; // 서비스의 제목
@@ -82,6 +83,54 @@ const projects: Project[] = [
   },
 ];
 
+const jflowProjects: Project[] = [
+  {
+    title: "Gitlab",
+    description:
+      "GitLab은 소스 코드 관리, 이슈 추적 등 프로젝트 라이프사이클을 관리하는 통합 개발 플랫폼입니다. 코드 협업과 프로젝트 관리를 원활하게 수행할  수 있습니다.",
+    imgSrc: "img/gitlab.png",
+    github: null,
+    docs: "https://jhelper.jbnu.ac.kr/JFlow/1GitlabGuide",
+    link: "https://gitlab.jbnu.ac.kr",
+  },
+  {
+    title: "Jenkins",
+    description:
+      "Jenkins는 지속적 통합 및 배포(CI/CD)를 자동화하는 플랫폼입니다. 코드 변경사항을 자동으로 빌드, 테스트하고 배포 파이프라인을 구축하여 개발 프로세스를 효율화할 수 있습니다.",
+    imgSrc: "img/jenkins.png",
+    github: null,
+    docs: "https://jhelper.jbnu.ac.kr/JFlow/2JenkinsGuide",
+    link: "https://jenkins.jbnu.ac.kr",
+  },
+  {
+    title: "Harbor",
+    description:
+      "Harbor는 컨테이너 이미지를 안전하게 저장, 관리 할 수 있는 컨테이너 레지스트리입니다. 취약점 스캐닝과 접근 제어 기능을 통해 컨테이너 이미지의 보안을 강화할 수 있습니다.",
+    imgSrc: "img/harbor.png",
+    github: null,
+    docs: "https://jhelper.jbnu.ac.kr/JFlow/3HarborGuide",
+    link: "https://harbor.jbnu.ac.kr",
+  },
+  {
+    title: "Sonarqube",
+    description:
+      "Sonarqube는 코드 품질과 취약점을 자동으로 검사하는 정적 코드 분석 도구입니다. 지속적인 코드 품질 모니터링을 통해 더 안정적이고 유지보수가 용이한 코드를 작성할 수 있습니다.",
+    imgSrc: "img/sonarqube.png",
+    github: null,
+    docs: "https://jhelper.jbnu.ac.kr/JFlow/4SonarQubeGuide",
+    link: "https://sonarqube.jbnu.ac.kr",
+  },
+  {
+    title: "Grafana",
+    description:
+      "Grafana는 다양한 데이터 소스로부터 수집된 정보를 시각화하는 분석 및 모니터링 플랫폼입니다. 직관적인 대시보드를 통해 시스템 성능과 애플리케이션 상태를 실시간으로 모니터링 할 수 있습니다.",
+    imgSrc: "img/grafana.png",
+    github: null,
+    docs: "https://jhelper.jbnu.ac.kr/JFlow/5Grafana",
+    action: ()=> alert("준비중인 서비스입니다."),
+  },
+];
+
 export default function Projects() {
   return (
     <Container sx={{ mt: 10 }}>
@@ -97,6 +146,31 @@ export default function Projects() {
           </Grid>
         ))}
       </Grid>
+
+      {/* JFlow 섹션 */}
+      <Box 
+        sx={{ mt: 8, mb: 5, p: 4, border: '1px solid #9575CD', borderRadius: 2 }}
+      >
+        {/* 가로형 카드(ServiceCard2.tsx) */}
+        <ServiceCard2
+          title="Jflow"
+          description="JFlow는 실제 배포 프로세스에서 활용되는 여러 오픈소스들을 별도의 설치 없이 즉시 사용가능한 형태로 제공하는 플랫폼입니다. 교육 환경부터 실무 서비스 개발, 연구 프로젝트 등 다양한 목적에 맞게 활용할 수 있으며, 인프라 구성 없이 핵심 업무에 집중할 수 있습니다."
+          imgSrc="img/jflow.png"
+          github=""
+          docs="https://jhelper.jbnu.ac.kr/JFlow"
+          /*action={() => alert("JFlow 통합 서비스로 이동합니다")}*/
+          actionButtonColor="#8A5ED8"
+        />
+        
+        {/* JFlow 프로젝트 */}
+        <Grid container columnSpacing={3} rowSpacing={3}>
+          {jflowProjects.map((project) => (
+            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={project.title}>
+              <ServiceCard {...project} actionButtonColor="#8A5ED8"/>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </Container>
   );
 }
