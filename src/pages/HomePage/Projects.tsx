@@ -29,11 +29,11 @@ const projects: Project[] = [
   {
     title: "JCODE",
     description:
-      "웹 상에서 프로그램 개발 및 테스트를 수행할 수 있는 Web IDE 서비스를 제공합니다. VS-Code 기반으로 C, C++, Java, Python, .Net, PHP, Node.js 등의 다양한 언어와 extension을 지원합니다.",
+      "쿠버네티스 기반의 VS Code 환경에서 동작하는 웹 IDE 서비스로, 실시간 코드 변경 이력 추적 및 시각화 기능을 통해 투명하고 공정한 교육 환경을 제공합니다. 또한 사용자 코딩 활동 데이터를 수집하여 학습 과정을 효과적으로 관리할 수 있도록 지원합니다.",
     imgSrc: "img/jcode.png",
     github: null,
     docs: null,
-    link: "https://jcode.jbnu.ac.kr",
+    action: () => alert("서비스 준비중입니다.")
   },
   {
     title: "JCloud",
@@ -139,9 +139,9 @@ export default function Projects() {
           JEduTools 프로젝트
         </Typography>
       </Box>
-      <Grid container columnSpacing={3} rowSpacing={3}>
+      <Grid container columnSpacing={2} rowSpacing={3}>
         {projects.map((project) => (
-          <Grid size={{ xs: 12, sm: 6, md: 4 }} key={project.title}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }} sx={{ width: '100%' }} key={project.title}>
             <ServiceCard {...project} />
           </Grid>
         ))}
@@ -163,9 +163,9 @@ export default function Projects() {
         />
         
         {/* JFlow 프로젝트 */}
-        <Grid container columnSpacing={3} rowSpacing={3}>
+        <Grid container columnSpacing={2} rowSpacing={3}>
           {jflowProjects.map((project) => (
-            <Grid size={{ xs: 12, sm: 6, md: 4 }} key={project.title}>
+            <Grid size={{ xs: 12, sm: 6, md: 4 }} sx={{ width: '100%' }} key={project.title}>
               <ServiceCard {...project} actionButtonColor="#8A5ED8"/>
             </Grid>
           ))}
