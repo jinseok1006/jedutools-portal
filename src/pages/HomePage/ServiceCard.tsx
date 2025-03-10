@@ -40,14 +40,14 @@ export default function ServiceCard({
     <Card
       elevation={0}
       sx={{ 
-        height: 430,
+        height: 400,
         display: "flex", 
         flexDirection: "column"
       }}
     >
       <Box 
         sx={{ 
-          height: 160,
+          height: 150,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -67,12 +67,11 @@ export default function ServiceCard({
           flex: 1,
           display: "flex", 
           flexDirection: "column",
-          gap: 1.5,
           p: 2,
           pb: 1.5
         }}
       >
-        <Box>
+        <Box sx={{ flex: 1 }}>
           <Typography
             variant="h5"
             component="div"
@@ -93,12 +92,8 @@ export default function ServiceCard({
             color="textSecondary"
             sx={{
               mt: 1.5,
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              display: '-webkit-box',
-              WebkitLineClamp: 3,
-              WebkitBoxOrient: 'vertical',
-              height: '4.5em',
+              lineHeight: 1.6,
+              mb: 1
             }}
           >
             {description}
@@ -106,17 +101,26 @@ export default function ServiceCard({
         </Box>
 
         <Box sx={{ 
-          mt: 2,
+          mt: 'auto',
           display: 'flex', 
-          flexDirection: 'column', 
-          gap: 1.5
+          gap: 1
         }}>
           <Button
             variant="contained"
             onClick={handleServiceClick}
             disabled={!link && !action || ["JIGSSO", "SLOT", "JEduTools Portal", "JCODE", "Grafana"].includes(title)}
             color="primary"
-            fullWidth
+            sx={{ 
+              flex: 1.5,
+              height: 36.5,
+              ...(actionButtonColor ? {
+                backgroundColor: actionButtonColor,
+                '&:hover': {
+                  backgroundColor: actionButtonColor,
+                  opacity: 0.9
+                }
+              } : {})
+            }}
             startIcon={
               title === "JIGSSO" ? <LockIcon /> 
               : title === "SLOT" || title === "JCODE" ? <EngineeringIcon />
@@ -124,55 +128,50 @@ export default function ServiceCard({
               : null
             }
             endIcon={["JIGSSO", "SLOT", "JEduTools Portal", "JCODE", "Grafana"].includes(title) ? null : <LaunchIcon />}
-            sx={actionButtonColor ? {
-              backgroundColor: actionButtonColor,
-              '&:hover': {
-                backgroundColor: actionButtonColor,
-                opacity: 0.9
-              }
-            } : {}}
           >
             {title === "JIGSSO" 
-              ? "JEduTools 로그인 서비스" 
+              ? "로그인 서비스" 
               : title === "SLOT" || title === "JCODE"
-                ? "서비스 준비중" 
+                ? "준비중" 
               : title === "Grafana"
-                ? "서비스 점검중"
+                ? "점검중"
               : title === "JEduTools Portal"
-                ? "현재 페이지입니다"
-              : "서비스 바로가기"}
+                ? "현재페이지"
+              : "바로가기"}
           </Button>
           
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            gap={2}
+          <Button
+            variant="contained"
+            href={github ?? "#"}
+            disabled={!github}
+            target="_blank"
+            rel="noopener"
+            color="github"
+            sx={{ 
+              flex: 0.75,
+              height: 36.5,
+              minWidth: 'unset'
+            }}
+            startIcon={<GitHubIcon />}
           >
-            <Button
-              variant="contained"
-              href={github ?? "#"}
-              disabled={!github}
-              target="_blank"
-              rel="noopener"
-              color="github"
-              sx={{ flex: 1 }}
-              startIcon={<GitHubIcon />}
-            >
-              GitHub
-            </Button>
-            <Button
-              variant="contained"
-              href={docs ?? "#"}
-              disabled={!docs}
-              target="_blank"
-              rel="noopener"
-              color="secondary"
-              sx={{ flex: 1 }}
-              startIcon={<LibraryBooksIcon />}
-            >
-              Docs
-            </Button>
-          </Box>
+            GitHub
+          </Button>
+          <Button
+            variant="contained"
+            href={docs ?? "#"}
+            disabled={!docs}
+            target="_blank"
+            rel="noopener"
+            color="secondary"
+            sx={{ 
+              flex: 0.75,
+              height: 36.5,
+              minWidth: 'unset'
+            }}
+            startIcon={<LibraryBooksIcon />}
+          >
+            Docs
+          </Button>
         </Box>
       </CardContent>
     </Card>
