@@ -14,7 +14,9 @@ import HomeIcon from '@mui/icons-material/Home';
 
 import type { Project } from "./Projects";
 
-interface ServiceCardProps extends Project {}
+interface ServiceCardProps extends Project {
+  actionButtonColor?: string; // 추가: 버튼 색상 커스터마이징을 위한 prop
+}
 
 export default function ServiceCard({
   title,
@@ -24,6 +26,7 @@ export default function ServiceCard({
   github,
   docs,
   action,
+  actionButtonColor,
 }: ServiceCardProps) {
   const handleServiceClick = () => {
     if (action && !["JIGSSO", "SLOT", "JEduTools Portal", "JCODE"].includes(title)) {
@@ -56,7 +59,7 @@ export default function ServiceCard({
           title={title}
           imgSrc={imgSrc}
           link={link}
-          action={["JIGSSO", "SLOT", "JEduTools Portal", "JCODE"].includes(title) ? undefined : action}
+          action={["JIGSSO", "SLOT", "JEduTools Portal", "JCODE", "Grafana"].includes(title) ? undefined : action}
         />
       </Box>
       <CardContent 
@@ -111,7 +114,7 @@ export default function ServiceCard({
           <Button
             variant="contained"
             onClick={handleServiceClick}
-            disabled={!link && !action || ["JIGSSO", "SLOT", "JEduTools Portal", "JCODE"].includes(title)}
+            disabled={!link && !action || ["JIGSSO", "SLOT", "JEduTools Portal", "JCODE", "Grafana"].includes(title)}
             color="primary"
             fullWidth
             startIcon={
@@ -120,15 +123,24 @@ export default function ServiceCard({
               : title === "JEduTools Portal" ? <HomeIcon />
               : null
             }
-            endIcon={["JIGSSO", "SLOT", "JEduTools Portal", "JCODE"].includes(title) ? null : <LaunchIcon />}
+            endIcon={["JIGSSO", "SLOT", "JEduTools Portal", "JCODE", "Grafana"].includes(title) ? null : <LaunchIcon />}
+            sx={actionButtonColor ? {
+              backgroundColor: actionButtonColor,
+              '&:hover': {
+                backgroundColor: actionButtonColor,
+                opacity: 0.9
+              }
+            } : {}}
           >
             {title === "JIGSSO" 
               ? "JEduTools 로그인 서비스" 
               : title === "SLOT" || title === "JCODE"
                 ? "서비스 준비중" 
-                : title === "JEduTools Portal"
-                  ? "현재 페이지입니다"
-                  : "서비스 바로가기"}
+              : title === "Grafana"
+                ? "서비스 점검중"
+              : title === "JEduTools Portal"
+                ? "현재 페이지입니다"
+              : "서비스 바로가기"}
           </Button>
           
           <Box
