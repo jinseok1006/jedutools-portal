@@ -127,7 +127,7 @@ const jflowProjects: Project[] = [
     imgSrc: "img/grafana.png",
     github: null,
     docs: "https://jhelper.jbnu.ac.kr/JFlow/5Grafana",
-    action: ()=> alert("준비중인 서비스입니다."),
+    link: "https://grafana.jbnu.ac.kr",
   },
 ];
 
@@ -153,7 +153,7 @@ export default function Projects() {
       >
         {/* 가로형 카드(ServiceCard2.tsx) */}
         <ServiceCard2
-          title="Jflow"
+          title="JFlow"
           description="JFlow는 실제 배포 프로세스에서 활용되는 여러 오픈소스들을 별도의 설치 없이 즉시 사용가능한 형태로 제공하는 플랫폼입니다. 교육 환경부터 실무 서비스 개발, 연구 프로젝트 등 다양한 목적에 맞게 활용할 수 있으며, 인프라 구성 없이 핵심 업무에 집중할 수 있습니다."
           imgSrc="img/jflow.png"
           github=""
