@@ -1,4 +1,3 @@
-import Chat from "@mui/icons-material/Chat";
 import Email from "@mui/icons-material/Email";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -25,16 +24,6 @@ export default function Contact() {
         </Typography>
 
         <Box display="flex" justifyContent="center" gap={2}>
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<Chat />}
-            href="https://open.kakao.com/o/gXXXXX" // 카카오톡 오픈채팅 링크
-            target="_blank"
-            disabled
-          >
-            카카오톡 오픈채팅방
-          </Button>
           <Button
             variant="contained"
             color="secondary"

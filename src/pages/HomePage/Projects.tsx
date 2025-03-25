@@ -27,13 +27,13 @@ const projects: Project[] = [
     docs: "https://jhelper.jbnu.ac.kr/Litmus",
   },
   {
-    title: "JCODE",
+    title: "JCode",
     description:
       "쿠버네티스 기반의 VS Code 환경에서 동작하는 웹 IDE 서비스로, 실시간 코드 변경 이력 추적 및 시각화 기능을 통해 투명하고 공정한 교육 환경을 제공합니다. 또한 사용자 코딩 활동 데이터를 수집하여 학습 과정을 효과적으로 관리할 수 있도록 지원합니다.",
     imgSrc: "img/jcode.png",
     github: null,
-    docs: null,
-    action: () => alert("서비스 준비중입니다.")
+    docs: "https://jhelper.jbnu.ac.kr/JCode",
+    link: "https://jcode.jbnu.ac.kr"
   },
   {
     title: "JCloud",
@@ -69,7 +69,7 @@ const projects: Project[] = [
       "JEduTools 서비스를 효과적으로 제공하기 위한 포털 페이지 개발 및 관리를 목표로 합니다. 본 프로젝트는 JEduTools의 다양한 기능과 서비스를 사용자 친화적인 인터페이스를 통해 접근 가능하게 만듭니다.",
     imgSrc: "img/portal.png",
     github: "https://github.com/JBNU-JEduTools/portal",
-    docs: null,
+    docs: "https://jhelper.jbnu.ac.kr/Portal",
     action: ()=> alert('현재 페이지입니다.')
   },
   {
@@ -79,7 +79,7 @@ const projects: Project[] = [
     imgSrc: "img/jhelper.png",
     link: "https://jhelper.jbnu.ac.kr",
     github: "https://github.com/JBNU-JEduTools/JHelper",
-    docs: null,
+    docs: "https://jhelper.jbnu.ac.kr/JHelper",
   },
 ];
 
