@@ -29,7 +29,7 @@ export default function ServiceCard({
   actionButtonColor,
 }: ServiceCardProps) {
   const handleServiceClick = () => {
-    if (action && !["JIGSSO", "SLOT", "JEduTools Portal", "JCODE"].includes(title)) {
+    if (action && !["JIGSSO", "SLOT", "JEduTools Portal", "JCode"].includes(title)) {
       action();
     } else if (link) {
       window.open(link, '_blank');
@@ -59,7 +59,7 @@ export default function ServiceCard({
           title={title}
           imgSrc={imgSrc}
           link={link}
-          action={["JIGSSO", "SLOT", "JEduTools Portal", "JCODE", "Grafana"].includes(title) ? undefined : action}
+          action={["JIGSSO", "SLOT", "JEduTools Portal", "JCode", "Grafana"].includes(title) ? undefined : action}
         />
       </Box>
       <CardContent 
@@ -108,7 +108,7 @@ export default function ServiceCard({
           <Button
             variant="contained"
             onClick={handleServiceClick}
-            disabled={!link && !action || ["JIGSSO", "SLOT", "JEduTools Portal", "JCODE", "Grafana"].includes(title)}
+            disabled={!link && !action || ["JIGSSO", "SLOT", "JEduTools Portal", "Grafana"].includes(title)}
             color="primary"
             sx={{ 
               flex: 1.5,
@@ -123,15 +123,15 @@ export default function ServiceCard({
             }}
             startIcon={
               title === "JIGSSO" ? <LockIcon /> 
-              : title === "SLOT" || title === "JCODE" ? <EngineeringIcon />
+              : title === "SLOT" ? <EngineeringIcon />
               : title === "JEduTools Portal" ? <HomeIcon />
               : null
             }
-            endIcon={["JIGSSO", "SLOT", "JEduTools Portal", "JCODE", "Grafana"].includes(title) ? null : <LaunchIcon />}
+            endIcon={["JIGSSO", "SLOT", "JEduTools Portal", "Grafana"].includes(title) ? null : <LaunchIcon />}
           >
             {title === "JIGSSO" 
               ? "로그인 서비스" 
-              : title === "SLOT" || title === "JCODE"
+              : title === "SLOT"
                 ? "준비중" 
               : title === "Grafana"
                 ? "점검중"
