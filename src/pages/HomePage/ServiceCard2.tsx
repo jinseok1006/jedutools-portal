@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import LaunchIcon from '@mui/icons-material/Launch';
+import EngineeringIcon from '@mui/icons-material/Engineering';
 
 // Project 인터페이스를 재사용
 import { Project } from "./Projects";
@@ -83,7 +84,7 @@ export default function ServiceCard2({
             variant="contained"
             onClick={handleServiceClick}
             disabled={!link && !action && !onActionClick || isJflow}
-            endIcon={<LaunchIcon />}
+            startIcon={<EngineeringIcon />}
             sx={{
                 flex: 3,
                 ...(actionButtonColor ? {
@@ -95,7 +96,7 @@ export default function ServiceCard2({
                 } : {})
               }}
           >
-            서비스 점검중
+            준비중
           </Button>
           
           <Button

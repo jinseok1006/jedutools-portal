@@ -108,7 +108,7 @@ export default function ServiceCard({
           <Button
             variant="contained"
             onClick={handleServiceClick}
-            disabled={!link && !action || ["JIGSSO", "SLOT", "JEduTools Portal", "Grafana"].includes(title)}
+            disabled={!link && !action || ["JIGSSO", "SLOT", "JEduTools Portal"].includes(title)}
             color="primary"
             sx={{ 
               flex: 1.5,
@@ -127,14 +127,12 @@ export default function ServiceCard({
               : title === "JEduTools Portal" ? <HomeIcon />
               : null
             }
-            endIcon={["JIGSSO", "SLOT", "JEduTools Portal", "Grafana"].includes(title) ? null : <LaunchIcon />}
+            endIcon={["JIGSSO", "SLOT", "JEduTools Portal"].includes(title) ? null : <LaunchIcon />}
           >
             {title === "JIGSSO" 
               ? "로그인 서비스" 
               : title === "SLOT"
-                ? "준비중" 
-              : title === "Grafana"
-                ? "점검중"
+                ? "준비중"
               : title === "JEduTools Portal"
                 ? "현재페이지"
               : "바로가기"}
