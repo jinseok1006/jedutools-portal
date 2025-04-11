@@ -26,7 +26,7 @@ export default function MaintenanceBanner() {
         }}
       >
         <Typography sx={{ fontWeight: 500 }}>
-          <span style={{ fontWeight: "bold" }}>2025년 4월 11일(토) </span>
+          <span style={{ fontWeight: "bold" }}>2025년 4월 12일(토) </span>
           교내 네트워크 공사로 인해 서비스 이용이 간헐적으로 중단될 수 있습니다.
         </Typography>
       </Alert>
