@@ -5,6 +5,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { AuthProvider } from "react-oidc-context";
 import type { User } from "oidc-client-ts";
+import './index.css';
 
 const fontTheme = createTheme({
   typography: {
