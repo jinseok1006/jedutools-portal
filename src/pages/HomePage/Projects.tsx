@@ -233,7 +233,7 @@ export default function Projects() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-8">
         {jflowProjects.map((project) => (
-          <div key={project.title} className="w-full">
+          <div key={project.title} className="flex justify-center">
             <ShadcnServiceCard
               title={project.title}
               description={project.description}

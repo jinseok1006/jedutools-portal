@@ -1,12 +1,82 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Code, Cloud, BookOpen } from "lucide-react"
+import { ArrowRight, Code, Cloud, BookOpen, ChevronRight } from "lucide-react"
 // import Image from "next/image" // next/image 대신 일반 img 태그 사용
 import { useState } from "react"
 
+const tabItems = [
+  {
+    id: "jcloud",
+    name: "JCloud",
+    description: "클라우드 인프라 관리 및 모니터링 시스템",
+    imageSrc: "/img/hero/jcloud.png",
+  },
+  {
+    id: "litmus",
+    name: "Litmus",
+    description: "프로그래밍 과제 및 대회 관리 시스템",
+    imageSrc: "/img/hero/litmus.png",
+  },
+  {
+    id: "jcode",
+    name: "JCode",
+    description: "웹 기반 통합 개발 환경(IDE)",
+    imageSrc: "/img/hero/jcode.png",
+  },
+  {
+    id: "gitlab",
+    name: "GitLab",
+    description: "GitLab - 버전 관리 및 협업 플랫폼",
+    imageSrc: "/img/hero/gitlab.png",
+  },
+  {
+    id: "harbor",
+    name: "Harbor",
+    description: "Harbor - 컨테이너 이미지 레지스트리",
+    imageSrc: "/img/hero/harbor.png",
+  },
+  {
+    id: "jenkins",
+    name: "Jenkins",
+    description: "Jenkins - CI/CD 자동화 서버",
+    imageSrc: "/img/hero/jenkins.png",
+  },
+  {
+    id: "jhelper",
+    name: "JHelper",
+    description: "JHelper - JEduTools 개발 지원 도구",
+    imageSrc: "/img/hero/jhelper.png",
+  },
+  {
+    id: "jigsso",
+    name: "JIGSSO",
+    description: "JIGSSO - 통합 인증 시스템",
+    imageSrc: "/img/hero/jigsso.png",
+  },
+  {
+    id: "sonarqube",
+    name: "SonarQube",
+    description: "SonarQube - 코드 정적 분석 플랫폼",
+    imageSrc: "/img/hero/sonarqube.png",
+  },
+] as const
+
 export default function Hero() {
-  const [activeTab, setActiveTab] = useState<"jcloud" | "litmus" | "jcode">("jcloud")
+  const [activeIndex, setActiveIndex] = useState(0)
+  const activeTabItem = tabItems[activeIndex]
+
+  const handlePrev = () => {
+    setActiveIndex((prevIndex) => (prevIndex - 1 + tabItems.length) % tabItems.length)
+  }
+
+  const handleNext = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % tabItems.length)
+  }
+
+  const handleDotClick = (index: number) => {
+    setActiveIndex(index)
+  }
 
   return (
     <div id="hero" className="relative overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white pb-16">
@@ -20,11 +90,11 @@ export default function Hero() {
         <div className="text-center mb-10">
           {/* <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full text-blue-700 text-sm font-medium mb-4">
             <span className="flex h-2 w-2 rounded-full bg-blue-600 mr-2"></span>
-            함께 성장하는 교육 플랫폼
+             소프트웨어 교육 도구 모음
           </div> */}
 
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
-            함께 만드는 <span className="text-blue-600">SW 교육 혁신</span>
+            함께 만드는 <span className="text-[#1c5492]">SW 교육 혁신</span>
           </h1>
 
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -32,94 +102,65 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Dashboard Tabs */}
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex rounded-md shadow-sm" role="group">
-            <button
-              type="button"
-              className={`px-4 py-2 text-sm font-medium rounded-l-lg ${
-                activeTab === "jcloud" ? "bg-blue-600 text-white" : "bg-white text-gray-700 hover:bg-gray-50"
-              }`}
-              onClick={() => setActiveTab("jcloud")}
-            >
-              <Cloud className="inline-block mr-2 h-4 w-4" />
-              JCloud
-            </button>
-            <button
-              type="button"
-              className={`px-4 py-2 text-sm font-medium ${
-                activeTab === "litmus" ? "bg-blue-600 text-white" : "bg-white text-gray-700 hover:bg-gray-50"
-              }`}
-              onClick={() => setActiveTab("litmus")}
-            >
-              <BookOpen className="inline-block mr-2 h-4 w-4" />
-              Litmus
-            </button>
-            <button
-              type="button"
-              className={`px-4 py-2 text-sm font-medium rounded-r-lg ${
-                activeTab === "jcode" ? "bg-blue-600 text-white" : "bg-white text-gray-700 hover:bg-gray-50"
-              }`}
-              onClick={() => setActiveTab("jcode")}
-            >
-              <Code className="inline-block mr-2 h-4 w-4" />
-              JCode
-            </button>
-          </div>
-        </div>
-
         {/* Dashboard Display */}
         <div className="relative mx-auto max-w-5xl rounded-xl shadow-2xl overflow-hidden border border-gray-200 bg-white">
           {/* Floating Info Cards */}
-          <div className="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-3 max-w-[200px] border border-gray-100">
-            <h3 className="font-medium text-sm text-gray-900 mb-1">
-              {activeTab === "jcloud" && "JCloud"}
-              {activeTab === "litmus" && "Litmus"}
-              {activeTab === "jcode" && "JCode"}
-            </h3>
-            <p className="text-xs text-gray-600">
-              {activeTab === "jcloud" && "클라우드 인프라 관리 및 모니터링 시스템"}
-              {activeTab === "litmus" && "프로그래밍 과제 및 대회 관리 시스템"}
-              {activeTab === "jcode" && "웹 기반 통합 개발 환경(IDE)"}
-            </p>
+          <div className="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-3 max-w-[200px] sm:max-w-[240px] border border-gray-100">
+            <h3 className="font-medium text-sm text-gray-900 mb-1">{activeTabItem.name}</h3>
+            <p className="text-xs text-gray-600">{activeTabItem.description}</p>
           </div>
 
           {/* Dashboard Images */}
           <div className="relative aspect-[16/9] w-full">
-            <div
-              className={`absolute inset-0 transition-opacity duration-300 ${activeTab === "jcloud" ? "opacity-100" : "opacity-0"}`}
-            >
-              <img // Image 컴포넌트 대신 img 태그 사용
-                src="/img/hero/jcloud.png" // public 디렉토리 기준 경로
-                alt="JCloud 대시보드"
-                // fill // img 태그에는 fill 속성이 없습니다. className으로 대체합니다.
-                className="object-cover object-top w-full h-full" // w-full, h-full 추가
-              />
-            </div>
-            <div
-              className={`absolute inset-0 transition-opacity duration-300 ${activeTab === "litmus" ? "opacity-100" : "opacity-0"}`}
-            >
-              <img // Image 컴포넌트 대신 img 태그 사용
-                src="/img/hero/litmus.png" // public 디렉토리 기준 경로
-                alt="Litmus 대시보드"
-                // fill
-                className="object-cover object-top w-full h-full" // w-full, h-full 추가
-              />
-            </div>
-            <div
-              className={`absolute inset-0 transition-opacity duration-300 ${activeTab === "jcode" ? "opacity-100" : "opacity-0"}`}
-            >
-              <img // Image 컴포넌트 대신 img 태그 사용
-                src="/img/hero/jcode.png" // public 디렉토리 기준 경로
-                alt="JCode 대시보드"
-                // fill
-                className="object-cover object-top w-full h-full" // w-full, h-full 추가
-              />
-            </div>
-
+            {tabItems.map((item, index) => (
+              <div
+                key={item.id}
+                className={`absolute inset-0 transition-opacity duration-300 ${
+                  index === activeIndex ? "opacity-100" : "opacity-0 pointer-events-none"
+                }`}
+              >
+                <img
+                  src={item.imageSrc}
+                  alt={`${item.name} 대시보드`}
+                  className="object-cover object-top w-full h-full"
+                />
+              </div>
+            ))}
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-10"></div>
           </div>
+        </div>
+
+        {/* Navigation Controls */}
+        <div className="flex justify-between items-center mt-8 max-w-5xl mx-auto">
+          <button
+            onClick={handlePrev}
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors"
+            aria-label="이전"
+          >
+            <ChevronRight className="h-5 w-5 rotate-180" />
+          </button>
+
+          <div className="flex gap-1.5">
+            {tabItems.map((item, index) => (
+              <button
+                key={item.id}
+                onClick={() => handleDotClick(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === activeIndex ? "w-6 bg-slate-800" : "bg-slate-300 hover:bg-slate-400"
+                }`}
+                aria-label={`${item.name} 보기`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={handleNext}
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors"
+            aria-label="다음"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
         </div>
       </div>
     </div>
