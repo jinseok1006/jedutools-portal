@@ -1,39 +1,37 @@
-import Email from "@mui/icons-material/Email";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
+import { Mail, MessageSquare } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL;
+const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL || "jedutools@gmail.com";
 
 export default function Contact() {
   return (
-    <Container sx={{ my: 5, py: 5 }}>
-      <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        textAlign="center"
-        gap={3}
-      >
-        <Typography variant="h5" fontWeight="bold">
-          문의 및 안내
-        </Typography>
-        <Typography variant="body1">
-          궁금한 점이 있거나 더 많은 정보를 원하시면 아래 방법으로 연락하세요.
-        </Typography>
+    <div className="my-10 py-10">
+      <div className="max-w-screen-xl mx-auto px-4">
+        <div
+          className="flex flex-col items-start text-left"
+        >
+          <div className="flex items-center mb-3">
+            <MessageSquare className="h-5 w-5 text-blue-800 mr-2" />
+            <h2 className="font-medium text-gray-800">
+              문의 및 안내
+            </h2>
+          </div>
+          <p className="text-sm text-gray-600 mb-6">
+            궁금한 점이 있거나 더 많은 정보를 원하시면 아래 방법으로 연락하세요.
+          </p>
 
-        <Box display="flex" justifyContent="center" gap={2}>
-          <Button
-            variant="contained"
-            color="secondary"
-            startIcon={<Email />}
-            href={`mailto:${ADMIN_EMAIL}`}
-          >
-            문의 메일 보내기
+          
+            <Button asChild>
+              <a
+                href={`mailto:${ADMIN_EMAIL}`}
+                className="inline-flex items-center"
+              >
+                <Mail className="w-5 h-5 mr-2 -ml-1" />
+                문의 메일 보내기
+              </a>
           </Button>
-        </Box>
-      </Box>
-    </Container>
+        </div>
+      </div>
+    </div>
   );
 }

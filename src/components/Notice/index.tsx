@@ -29,7 +29,7 @@ export default function ExpandableNoticeSection() {
 
   if (isLoading && totalNoticeCount === 0) {
     return (
-      <div className="max-w-screen-xl mx-auto w-full bg-white border-y border-gray-200 py-3 px-4 text-center">
+      <div className="max-w-screen-xl mx-auto w-full bg-white py-3 px-4 text-center">
         <p>공지사항을 불러오는 중입니다...</p>
       </div>
     )
@@ -37,7 +37,7 @@ export default function ExpandableNoticeSection() {
 
   if (error) {
     return (
-      <div className="max-w-screen-xl mx-auto w-full bg-white border-y border-gray-200 py-3 px-4 text-center">
+      <div className="max-w-screen-xl mx-auto w-full bg-white py-3 px-4 text-center">
         <p className="text-red-500">공지사항을 불러오는데 실패했습니다: {error}</p>
       </div>
     )
@@ -45,14 +45,14 @@ export default function ExpandableNoticeSection() {
 
   if (!isLoading && totalNoticeCount === 0 && !error) {
     return (
-      <div className="max-w-screen-xl mx-auto w-full bg-white border-y border-gray-200 py-3 px-4 text-center">
+      <div className="max-w-screen-xl mx-auto w-full bg-white py-3 px-4 text-center">
         <p>등록된 공지사항이 없습니다.</p>
       </div>
     )
   }
 
   return (
-    <div id="announcements" className="max-w-screen-xl mx-auto w-full bg-white border-y border-gray-200 py-3 px-4">
+    <div id="announcements" className="max-w-screen-xl mx-auto w-full bg-white py-3 px-4">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center">
           <Bell className="h-5 w-5 text-blue-800 mr-2" />
