@@ -1,27 +1,10 @@
-// import Typography from "@mui/material/Typography";
-// import Container from "@mui/material/Container";
-// import Box from "@mui/material/Box";
-// import Grid from "@mui/material/Grid2";
 
-import ServiceCard from "./ServiceCard";
-import ServiceCard2 from "./ServiceCard2";
-import ShadcnServiceCard from "./ShadcnServiceCard";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card"; // Card 관련 컴포넌트가 Projects.tsx에서 직접 사용되지 않는다면 제거 가능
+
+import ProjectCard from "@/components/home/ProjectCard";
+
 import { Button } from "@/components/ui/button"; // Button import 추가
 import {
   ExternalLink,
-  Github,
-  Library,
-  Lock,
-  Cog,
-  HomeIcon as LucideHome,
   Blocks,
   LockKeyhole,
   Construction,
@@ -209,7 +192,7 @@ export default function Projects() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-4">
         {projectList.map((project) => (
           <div key={project.title} className="flex justify-center">
-            <ShadcnServiceCard
+            <ProjectCard
               title={project.title}
               description={project.description}
               imgSrc={project.imgSrc}
@@ -234,7 +217,7 @@ export default function Projects() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
         {jflowProjects.map((project) => (
           <div key={project.title} className="flex justify-center">
-            <ShadcnServiceCard
+            <ProjectCard
               title={project.title}
               description={project.description}
               imgSrc={project.imgSrc}

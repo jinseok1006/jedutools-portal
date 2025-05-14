@@ -1,4 +1,3 @@
-"use client"
 
 import { useState } from "react"
 import { Bell, ChevronDown, ChevronUp, Calendar } from "lucide-react"

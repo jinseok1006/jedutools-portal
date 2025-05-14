@@ -10,7 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Github, FileText } from "lucide-react";
 
-interface ShadcnServiceCardProps {
+interface ProjectCardProps {
   title: string;
   description: string;
   imgSrc: string;
@@ -19,14 +19,14 @@ interface ShadcnServiceCardProps {
   linkbtn: React.ReactNode;
 }
 
-export default function ShadcnServiceCard({
+export default function ProjectCard({
   title,
   description,
   imgSrc,
   github,
   docs,
   linkbtn
-}: ShadcnServiceCardProps) {
+}: ProjectCardProps) {
 
   return (
     <Card className="flex flex-col w-full max-w-sm overflow-hidden transition-all duration-300 border rounded-lg shadow-sm bg-card text-card-foreground hover:shadow-md gap-2 py-2">

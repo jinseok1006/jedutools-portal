@@ -10,7 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Menu, X, User, LogOut, Loader2 } from "lucide-react"
+import { User, LogOut, Loader2 } from "lucide-react"
 import { useKeycloak } from "@/hooks/useKeycloak"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
