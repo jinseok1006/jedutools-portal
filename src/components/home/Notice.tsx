@@ -1,7 +1,7 @@
 
 import { useState } from "react"
 import { Bell, ChevronDown, ChevronUp, Calendar } from "lucide-react"
-import { useNotices, Notice } from "@/hooks/useNotices"
+import { useNotices } from "@/hooks/useNotices"
 import ReactMarkdown from 'react-markdown'
 
 export default function ExpandableNoticeSection() {
