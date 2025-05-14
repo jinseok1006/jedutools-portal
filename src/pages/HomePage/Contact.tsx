@@ -5,7 +5,7 @@ const ADMIN_EMAIL = import.meta.env.VITE_ADMIN_EMAIL || "jedutools@gmail.com";
 
 export default function Contact() {
   return (
-    <div className="my-10 py-10">
+    <div id="contact" className="my-10 py-10">
       <div className="max-w-screen-xl mx-auto px-4">
         <div
           className="flex flex-col items-start text-left"

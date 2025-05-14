@@ -206,7 +206,7 @@ export default function Projects() {
         소개합니다.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-4">
         {projectList.map((project) => (
           <div key={project.title} className="flex justify-center">
             <ShadcnServiceCard
@@ -231,7 +231,7 @@ export default function Projects() {
         없이 즉시 사용가능한 형태로 제공하는 플랫폼입니다.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8">
         {jflowProjects.map((project) => (
           <div key={project.title} className="flex justify-center">
             <ShadcnServiceCard

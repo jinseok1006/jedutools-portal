@@ -92,7 +92,7 @@ export default function ExpandableNoticeSection() {
               </div>
 
               {expandedNoticeId === notice.id && notice.fullContent ? (
-                <div className="mt-2 text-sm text-gray-700 prose prose-sm max-w-none">
+                <div className="mt-4 text-sm text-gray-700 prose prose-sm max-w-none">
                   <ReactMarkdown>
                     {notice.fullContent}
                   </ReactMarkdown>

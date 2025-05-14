@@ -12,9 +12,10 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Menu, X, User, LogOut, Loader2 } from "lucide-react"
 import { useKeycloak } from "@/hooks/useKeycloak"
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/button"
 
 export default function AppBar() {
-  const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   const {
@@ -40,11 +41,10 @@ export default function AppBar() {
   }, [])
 
   const scrollToSection = (id: string) => {
-    setIsOpen(false)
     const element = document.getElementById(id)
     if (element) {
-      const appBarHeight = 64 // AppBar의 높이 (h-16 클래스는 4rem = 64px)
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+      const appBarHeight = 56 // AppBar의 높이를 64px에서 56px로 변경 (h-14)
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY
       const offsetPosition = elementPosition - appBarHeight
 
       window.scrollTo({
@@ -54,7 +54,7 @@ export default function AppBar() {
     }
   }
 
-  const AuthButtons = ({ isMobile = false }: { isMobile?: boolean }) => {
+  const AuthButtons = () => {
     if (isLoading) {
       return <Loader2 className="h-6 w-6 animate-spin text-blue-600" />
     }
@@ -62,18 +62,21 @@ export default function AppBar() {
     if (isAuthenticated) {
       return (
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className={`rounded-full ${isMobile ? "w-full justify-start px-3 py-2 text-base" : "p-2"}`}>
-              <User className={`h-5 w-5 ${isMobile ? "mr-2" : ""}`} />
-              <span className={isMobile ? "" : "sr-only"}>사용자 메뉴</span>
-            </Button>
+          <DropdownMenuTrigger
+            className={cn(
+              buttonVariants({ variant: "ghost" }),
+              "rounded-full",
+              "p-2"
+            )}
+          >
+            <User className={"h-5 w-5"} />
+            <span className="sr-only">사용자 메뉴</span>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align={isMobile ? "start" : "end"} className="w-56">
+          <DropdownMenuContent align={"end"} className="w-56 z-[9999]">
             <DropdownMenuLabel>안녕하세요, {username || "사용자"}님!</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={() => {
               handleLogout()
-              if (isMobile) setIsOpen(false)
             }}>
               <LogOut className="mr-2 h-4 w-4" />
               로그아웃
@@ -85,11 +88,10 @@ export default function AppBar() {
 
     return (
       <Button
-        variant={isMobile ? "ghost" : "outline"}
-        className={isMobile ? "block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50" : "border-blue-200 text-blue-700 hover:bg-blue-50"}
+        variant={"outline"}
+        className={"border-blue-200 text-blue-700 hover:bg-blue-50"}
         onClick={() => {
           handleLogin()
-          if (isMobile) setIsOpen(false)
         }}
       >
         로그인
@@ -100,12 +102,10 @@ export default function AppBar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b-0`}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+        <div className={`container mx-auto px-4 sm:px-6 lg:px-8`}>
+          <div className="flex items-center justify-between h-14">
             {/* Logo */}
             <div className="flex-shrink-0">
               <a href="/" className="flex items-center">
@@ -114,7 +114,7 @@ export default function AppBar() {
               </a>
             </div>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation - 이제 md 이상 화면에서만 보임 */}
             <nav className="hidden md:flex items-center space-x-8">
               <button
                 onClick={() => scrollToSection("hero")}
@@ -143,29 +143,13 @@ export default function AppBar() {
             </nav>
 
             {/* Auth Buttons - Desktop */}
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="flex items-center space-x-4">
               <AuthButtons />
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button
-                type="button"
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 focus:outline-none"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                <span className="sr-only">메뉴 열기</span>
-                {isOpen ? (
-                  <X className="block h-6 w-6" aria-hidden="true" />
-                ) : (
-                  <Menu className="block h-6 w-6" aria-hidden="true" />
-                )}
-              </button>
             </div>
           </div>
         </div>
       </header>
-      <div className="h-16" />
+      <div className="h-14" />
     </>
   )
 }

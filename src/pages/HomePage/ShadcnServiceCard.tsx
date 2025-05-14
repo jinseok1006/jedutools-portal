@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, Library } from "lucide-react";
+import { Github, FileText } from "lucide-react";
 
 interface ShadcnServiceCardProps {
   title: string;
@@ -29,7 +29,7 @@ export default function ShadcnServiceCard({
 }: ShadcnServiceCardProps) {
 
   return (
-    <Card className="flex flex-col w-full max-w-xs overflow-hidden transition-all duration-300 border rounded-lg shadow-sm bg-card text-card-foreground hover:shadow-md gap-2 py-2">
+    <Card className="flex flex-col w-full max-w-sm overflow-hidden transition-all duration-300 border rounded-lg shadow-sm bg-card text-card-foreground hover:shadow-md gap-2 py-2">
       {imgSrc && (
         <div className="flex items-center justify-center p-4 overflow-hidden h-28">
           <img
@@ -87,10 +87,10 @@ export default function ShadcnServiceCard({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Library className="w-4 h-4" />
+                <FileText className="w-4 h-4" />
               </a>
             ) : (
-              <Library className="w-4 h-4" />
+              <FileText className="w-4 h-4" />
             )}
           </Button>
         </div>

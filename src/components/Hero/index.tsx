@@ -1,15 +1,13 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Code, Cloud, BookOpen, ChevronRight } from "lucide-react"
-// import Image from "next/image" // next/image 대신 일반 img 태그 사용
-import { useState } from "react"
+import { ChevronRight } from "lucide-react"
+import { useState, useEffect } from "react"
 
 const tabItems = [
   {
     id: "jcloud",
     name: "JCloud",
-    description: "클라우드 인프라 관리 및 모니터링 시스템",
+    description: "클라우드 인프라 서비스 및 모니터링 시스템",
     imageSrc: "/img/hero/jcloud.png",
   },
   {
@@ -25,39 +23,39 @@ const tabItems = [
     imageSrc: "/img/hero/jcode.png",
   },
   {
-    id: "gitlab",
-    name: "GitLab",
-    description: "GitLab - 버전 관리 및 협업 플랫폼",
-    imageSrc: "/img/hero/gitlab.png",
-  },
-  {
-    id: "harbor",
-    name: "Harbor",
-    description: "Harbor - 컨테이너 이미지 레지스트리",
-    imageSrc: "/img/hero/harbor.png",
-  },
-  {
-    id: "jenkins",
-    name: "Jenkins",
-    description: "Jenkins - CI/CD 자동화 서버",
-    imageSrc: "/img/hero/jenkins.png",
-  },
-  {
     id: "jhelper",
     name: "JHelper",
-    description: "JHelper - JEduTools 개발 지원 도구",
+    description: "JEduTools 개발 가이드 및 문서화",
     imageSrc: "/img/hero/jhelper.png",
   },
   {
     id: "jigsso",
     name: "JIGSSO",
-    description: "JIGSSO - 통합 인증 시스템",
+    description: "통합 인증 시스템",
     imageSrc: "/img/hero/jigsso.png",
+  },
+  {
+    id: "gitlab",
+    name: "GitLab",
+    description: "버전 관리 및 협업 플랫폼",
+    imageSrc: "/img/hero/gitlab.png",
+  },
+  {
+    id: "harbor",
+    name: "Harbor",
+    description: "컨테이너 이미지 레지스트리",
+    imageSrc: "/img/hero/harbor.png",
+  },
+  {
+    id: "jenkins",
+    name: "Jenkins",
+    description: "CI/CD 자동화 서버",
+    imageSrc: "/img/hero/jenkins.png",
   },
   {
     id: "sonarqube",
     name: "SonarQube",
-    description: "SonarQube - 코드 정적 분석 플랫폼",
+    description: "코드 정적 분석 플랫폼",
     imageSrc: "/img/hero/sonarqube.png",
   },
 ] as const
@@ -78,12 +76,20 @@ export default function Hero() {
     setActiveIndex(index)
   }
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext()
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [activeIndex])
+
   return (
-    <div id="hero" className="relative overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white pb-16">
+    <div id="hero" className="relative overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white md:pb-16">
       {/* Decorative elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-20 right-1/4 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
-        <div className="absolute bottom-30 left-1/4 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+        <div className="absolute top-20 right-1/4 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 hidden md:block"></div>
+        <div className="absolute bottom-30 left-1/4 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 hidden md:block"></div>
       </div>
 
       <div className="container relative z-10 mx-auto px-4 py-12 sm:px-6 lg:px-8">
@@ -103,7 +109,7 @@ export default function Hero() {
         </div>
 
         {/* Dashboard Display */}
-        <div className="relative mx-auto max-w-5xl rounded-xl shadow-2xl overflow-hidden border border-gray-200 bg-white">
+        <div className="relative mx-auto max-w-5xl rounded-xl shadow-2xl overflow-hidden border border-gray-200 bg-white hidden md:block">
           {/* Floating Info Cards */}
           <div className="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg p-3 max-w-[200px] sm:max-w-[240px] border border-gray-100">
             <h3 className="font-medium text-sm text-gray-900 mb-1">{activeTabItem.name}</h3>
@@ -132,7 +138,7 @@ export default function Hero() {
         </div>
 
         {/* Navigation Controls */}
-        <div className="flex justify-between items-center mt-8 max-w-5xl mx-auto">
+        <div className="hidden md:flex justify-between items-center mt-8 max-w-5xl mx-auto">
           <button
             onClick={handlePrev}
             className="flex items-center justify-center w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors"
