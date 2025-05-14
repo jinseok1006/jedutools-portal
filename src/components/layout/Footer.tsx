@@ -26,7 +26,7 @@ export default function Footer() {
 
 
         <p className="text-sm text-center text-gray-500">
-          본 서비스는 2024 SW 교육 플랫폼 JEduTools 구축 프로젝트로써,
+          본 서비스는 2024 SW 교육 플랫폼 구축 프로젝트로써
           전북대학교 SW중심대학사업단의 지원으로 제작되었습니다.
         </p>
       </div>
