@@ -52,7 +52,7 @@ export default function ExpandableNoticeSection() {
   }
 
   return (
-    <div className="max-w-screen-xl mx-auto w-full bg-white border-y border-gray-200 py-3 px-4">
+    <div id="announcements" className="max-w-screen-xl mx-auto w-full bg-white border-y border-gray-200 py-3 px-4">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center">
           <Bell className="h-5 w-5 text-blue-800 mr-2" />
