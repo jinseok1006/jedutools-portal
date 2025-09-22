@@ -90,7 +90,7 @@ export default function Hero() {
         <div className="absolute bottom-30 left-1/4 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 hidden md:block"></div>
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 py-12 sm:px-6 lg:px-8">
+      <div className="container relative z-10 mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           {/* <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full text-blue-700 text-sm font-medium mb-4">
             <span className="flex h-2 w-2 rounded-full bg-blue-600 mr-2"></span>
