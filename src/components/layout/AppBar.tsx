@@ -122,12 +122,7 @@ export default function AppBar() {
               >
                 홈
               </button>
-              <button
-                onClick={() => scrollToSection("announcements")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                공지사항
-              </button>
+
               <button
                 onClick={() => scrollToSection("projects")}
                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
